@@ -31,7 +31,11 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] colliders= Physics2D.OverlapCircleAll(attackPoint.position, attackRadius,enemyLayerMask);
         foreach(Collider2D collider in colliders)
         {
-            Destroy(collider.gameObject);
+            EnemyLife enemyLife= collider.gameObject.GetComponent<EnemyLife>();
+            if(enemyLife != null)
+            {
+                enemyLife.TakeDamage(1,transform);
+            }
         }
     }
 
