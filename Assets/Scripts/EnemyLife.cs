@@ -35,4 +35,13 @@ public class EnemyLife : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerBullet"))
+        {
+            ChangeLife(-1);
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
