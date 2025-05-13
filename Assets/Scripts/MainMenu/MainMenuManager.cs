@@ -23,6 +23,7 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("SaveData", 1);
+        PlayerPrefs.SetString("CurrentLevel", "Level1Scene");
         LoadScene();
     }
 
