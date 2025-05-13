@@ -11,6 +11,7 @@ public class LevelTest : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             PlayerPrefs.SetString("CurrentLevel", nextLevel);
+            PlayerLevelSelector.SavePlayerPosition();
             SceneManager.LoadScene("LevelSelectorScene");
         }
     }
