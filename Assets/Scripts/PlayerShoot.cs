@@ -19,6 +19,12 @@ public class PlayerShoot : MonoBehaviour
         {
             cam = cameraObject.GetComponent<Camera>(); 
         }
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        BulletText.Instance.SetText(currentBulletAmount, currentBullet.maxBulletAmount);
     }
 
     void Update()
@@ -41,6 +47,7 @@ public class PlayerShoot : MonoBehaviour
         yield return new WaitForSeconds(currentBullet.reloadDelay);
         isReloading = false;
         currentBulletAmount = currentBullet.maxBulletAmount;
+        UpdateText();
     }
 
 
@@ -57,6 +64,7 @@ public class PlayerShoot : MonoBehaviour
                 bullet.transform.position = transform.position;
                 bullet.GetComponent<BulletMovement>().SetDirection(direction.normalized);
                 currentBulletAmount--;
+                UpdateText();
                 timer = 0;
             }            
         }
@@ -81,6 +89,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 currentBullet = b;
                 currentBulletAmount = currentBullet.maxBulletAmount;
+                UpdateText();
             }
         }
     }
