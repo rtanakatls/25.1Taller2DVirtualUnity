@@ -4,6 +4,7 @@ public enum PowerUpType
 {
     Pistol,
     MachineGun
+    
 }
 
 public class PowerUp : MonoBehaviour

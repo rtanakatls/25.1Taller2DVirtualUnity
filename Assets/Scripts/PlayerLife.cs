@@ -43,5 +43,11 @@ public class PlayerLife : MonoBehaviour
         {
             ChangeLife(5);
         }
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            ChangeLife(-1);
+            Destroy(collision.gameObject);
+        }
     }
+
 }
