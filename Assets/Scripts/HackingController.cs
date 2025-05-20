@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class HackingController : MonoBehaviour
 {
+    [SerializeField] private GameObject endGameObject;
     [SerializeField] private List<HackingBarController> controllers;
     private int currentHackingBarIndex = 0;
     
@@ -30,6 +31,7 @@ public class HackingController : MonoBehaviour
         {
             Time.timeScale = 1;
             Destroy(gameObject);
+            endGameObject.SetActive(true);
         }
         
     }

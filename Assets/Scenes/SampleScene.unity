@@ -475,7 +475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &148693007
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1676,6 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706c3645a2af7ea4ea32a108de2b600e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endGameObject: {fileID: 148693006}
   controllers:
   - {fileID: 2139593128}
   - {fileID: 2104113941}
