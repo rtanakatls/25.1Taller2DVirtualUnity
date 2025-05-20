@@ -29,7 +29,7 @@ public class HackingBarController : MonoBehaviour
     private void MoveCheckingBar()
     {
         checkingBarTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, timer / travelTime);
-        timer += Time.deltaTime * factor;
+        timer += Time.unscaledDeltaTime * factor;
         if (timer >= travelTime || timer <= 0)
         {
             factor *= -1;

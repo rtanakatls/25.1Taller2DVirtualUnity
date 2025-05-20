@@ -8,7 +8,8 @@ public class HackingController : MonoBehaviour
     
     void Awake()
     {
-        foreach(HackingBarController controller in controllers)
+        Time.timeScale = 0;
+        foreach (HackingBarController controller in controllers)
         {
             controller.SetUp(this);
             controller.enabled = false;
@@ -24,6 +25,11 @@ public class HackingController : MonoBehaviour
         if (currentHackingBarIndex < controllers.Count)
         {
             controllers[currentHackingBarIndex].enabled = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            Destroy(gameObject);
         }
         
     }
