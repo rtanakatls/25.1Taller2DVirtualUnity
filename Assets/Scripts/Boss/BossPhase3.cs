@@ -36,8 +36,9 @@ public class BossPhase3 : MonoBehaviour
             Vector2 direction = target.position - transform.position;
 
             rb2d.linearVelocity = direction.normalized * speed;
-
         }
+
+        BossPhaseController.Instance.CheckPhase3();
     }
 
 }

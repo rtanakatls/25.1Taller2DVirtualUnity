@@ -15,6 +15,8 @@ public class BossLife : MonoBehaviour
         if (life <= 0)
         {
             Destroy(gameObject);
+            BossController.Instance.CheckPhase2();
+
         }
     }
 

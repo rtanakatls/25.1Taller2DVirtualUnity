@@ -8,6 +8,8 @@ public class BossController : MonoBehaviour
 
     [SerializeField] private int currentTurretAmount;
 
+    [SerializeField] private GameObject exit;
+
     private void Awake()
     {
         instance = this;
@@ -21,6 +23,11 @@ public class BossController : MonoBehaviour
         {
             BossPhaseController.Instance.EnableBoss();
         }
+    }
+
+    public void CheckPhase2()
+    {
+        exit.SetActive(true);
     }
 
 }

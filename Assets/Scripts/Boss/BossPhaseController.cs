@@ -24,7 +24,11 @@ public class BossPhaseController : MonoBehaviour
 
 
     private List<MonoBehaviour> bossPhases;
+
+    [SerializeField] private List<GameObject> enemies;
     
+    
+
     private void Awake()
     {
         instance = this;
@@ -62,15 +66,32 @@ public class BossPhaseController : MonoBehaviour
             bossPhases[1].enabled = false;
             bossPhases[2].enabled = true;
 
+            foreach(GameObject enemy in enemies)
+            {
+                enemy.SetActive(true);
+            }
             shield.SetActive(true);
         }
     }
 
     public void CheckPhase3()
     {
-        currentBossPhase = BossPhase.Phase4;
-        bossPhases[2].enabled = false;
-        bossPhases[3].enabled = true;
+        bool enemyAlive = false;
+
+        foreach (GameObject enemy in enemies)
+        {
+            if(enemy!=null)
+            {
+                enemyAlive = true;
+            }
+        }
+        if (!enemyAlive)
+        {
+            shield.SetActive(false);
+            currentBossPhase = BossPhase.Phase4;
+            bossPhases[2].enabled = false;
+            bossPhases[3].enabled = true;
+        }
     }
 
 }

@@ -2,15 +2,42 @@ using UnityEngine;
 
 public class BossPhase4 : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Rigidbody2D rb2d;
+    [SerializeField] private float speed;
+    private Transform target;
+
+    private void OnEnable()
     {
-        
+        if (rb2d == null)
+        {
+            rb2d = GetComponent<Rigidbody2D>();
+        }
+        rb2d.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
+
+    private void Start()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player != null)
+        {
+            target = player.transform;
+        }
+    }
+
+    private void Update()
+    {
+        if (target != null)
+        {
+            Vector2 direction = target.position - transform.position;
+
+            rb2d.linearVelocity = direction.normalized * speed;
+
+        }
+    }
+
 }
