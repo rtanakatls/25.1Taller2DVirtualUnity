@@ -11,6 +11,7 @@ public class LevelTest : MonoBehaviour
         {
             PlayerPrefs.SetString("CurrentLevel", nextLevel);
             PlayerLevelSelector.SavePlayerPosition();
+            SceneManager.LoadScene("LevelSelectorScene");
         }
     }
 }
