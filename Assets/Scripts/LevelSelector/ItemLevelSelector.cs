@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class ItemLevelSelector : MonoBehaviour
 {
+    [SerializeField] private string missionText;
     [SerializeField] private string levelName;
     private SpriteRenderer spriteRenderer;
     private bool isActive;
 
-
+    public string MissionText { get { return missionText; } }
     public bool IsActive {  get { return isActive; } }
     public string LevelName {  get { return levelName; } }
     
